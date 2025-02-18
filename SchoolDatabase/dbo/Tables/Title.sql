@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[Title]
+(
+	[TitleId] INT NOT NULL,
+	[Name] NVARCHAR(50) NOT NULL,
+	[TitleKey] NVARCHAR(50) NULL,
+	CONSTRAINT [PKTitle] PRIMARY KEY CLUSTERED ([TitleId] ASC)
+)

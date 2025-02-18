@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[TransportFeePaymentDetails]
+(
+ TransportFeePaymentDetailId BIGINT IDENTITY(1, 1), 
+ TransportConsumerStoppageMappingId INT,
+ ConsumerId BIGINT,
+ RoleId INT,
+ AcademicYearId SMALLINT,
+ TransportFeePaymentId BIGINT,
+ InvoiceNumber VARCHAR(100),
+ OtherFeeReason NVARCHAR(500),
+ FeeAfterDiscount MONEY,
+ PaidAmount MONEY,
+ IsChequeClear BIT DEFAULT(0) NOT NULL,
+ PaymentTypeId SMALLINT,
+ AdditionalDiscInPercentage NUMERIC(5,4),
+ AdditionalDiscAmount MONEY,
+ CreatedBy INT, 
+ CreatedDate DATETIME, 
+ ModifiedBy INT, 
+ ModifiedDate DATETIME, 
+ IsDeleted BIT DEFAULT(0) NOT NULL,
+ CONSTRAINT [PKTransportFeePaymentDetails] PRIMARY KEY CLUSTERED ([TransportFeePaymentDetailId] ASC),
+ CONSTRAINT [FKTransportFeePaymentDetailsTransportConsumerStoppageMapping] FOREIGN KEY (TransportConsumerStoppageMappingId) REFERENCES TransportConsumerStoppageMapping(TransportConsumerStoppageMappingId),
+ CONSTRAINT [FKTransportFeePaymentDetailsAcademicYear] FOREIGN KEY (AcademicYearId) REFERENCES AcademicYear(AcademicYearId),
+ CONSTRAINT [FKTransportFeePaymentDetailsFeePayment] FOREIGN KEY (TransportFeePaymentId ) REFERENCES TransportFeePayment(TransportFeePaymentId),
+ CONSTRAINT [FKTransportFeePaymentDetailsRole] FOREIGN KEY (RoleId) REFERENCES Role(RoleId)
+)

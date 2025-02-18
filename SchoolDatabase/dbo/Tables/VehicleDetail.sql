@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[VehicleDetail]
+(
+	 VehicleDetailId BIGINT IDENTITY(1, 1), 
+	 VehicleId BIGINT,
+	 VehicleRegistrationStartDate DATETIME,
+	 VehicleRegistrationEndDate DATETIME,
+	 VehiclePermitStartDate DATETIME,
+	 VehiclePermitEndDate DATETIME,
+	 VehicleInsuranceStartDate DATETIME,
+	 VehicleInsuranceEndDate DATETIME,
+	 VehiclePollutionStartDate DATETIME,
+	 VehiclePollutionEndDate DATETIME,
+	 VehicleRoadTaxStartDate DATETIME,
+	 VehicleRoadTaxEndDate DATETIME,
+	 VehicleFitnessStartDate DATETIME,
+	 VehicleFitnessEndDate DATETIME,
+	 Description NVARCHAR(500),
+	 AcademicYearId SMALLINT,
+	 CreatedBy INT, 
+     CreatedDate DATETIME, 
+     ModifiedBy INT, 
+     ModifiedDate DATETIME, 
+     IsDeleted BIT DEFAULT(0) NOT NULL, 
+	 CONSTRAINT [PKVehicleDetail] PRIMARY KEY CLUSTERED ([VehicleDetailId] ASC),
+     CONSTRAINT [FKVehicleDetailVehicle] FOREIGN KEY (VehicleId) REFERENCES  Vehicle(VehicleId),
+	 CONSTRAINT [FKVehicleDetailAcademicYear] FOREIGN KEY (AcademicYearId) REFERENCES  AcademicYear(AcademicYearId)
+);

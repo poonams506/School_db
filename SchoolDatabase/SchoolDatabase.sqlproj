@@ -1,0 +1,802 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>SchoolDatabase</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{eb0697c8-3a5a-47f8-9380-62f1744135ea}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.SqlAzureV12DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath />
+    <RootNamespace>SchoolDatabase</RootNamespace>
+    <AssemblyName>SchoolDatabase</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+    <Folder Include="dbo\Stored Procedures\" />
+    <Folder Include="Post Deployment" />
+    <Folder Include="dbo\Stored Procedures\StudentModule" />
+    <Folder Include="dbo\Stored Procedures\ParentModule" />
+    <Folder Include="dbo\Stored Procedures\ClerkModule" />
+    <Folder Include="dbo\Stored Procedures\AccessModule" />
+    <Folder Include="dbo\Stored Procedures\AdminModule" />
+    <Folder Include="dbo\Stored Procedures\CabDriverModule" />
+    <Folder Include="dbo\Stored Procedures\DivisionModule" />
+    <Folder Include="dbo\Stored Procedures\GradeModule" />
+    <Folder Include="dbo\Stored Procedures\SchoolModule" />
+    <Folder Include="dbo\Stored Procedures\TeacherModule" />
+    <Folder Include="dbo\Stored Procedures\MasterModule" />
+    <Folder Include="dbo\Stored Procedures\CommonModule" />
+    <Folder Include="dbo\Stored Procedures\UserModule" />
+    <Folder Include="dbo\Stored Procedures\SchoolGradeDivisionMatrixModule" />
+    <Folder Include="dbo\Stored Procedures\AttendanceModule" />
+    <Folder Include="dbo\Stored Procedures\HomeworkModule" />
+    <Folder Include="dbo\Stored Procedures\FeesModule" />
+    <Folder Include="dbo\Stored Procedures\CertificateModule" />
+    <Folder Include="dbo\Stored Procedures\ClassTimeTableModule" />
+    <Folder Include="dbo\User Defined Functions" />
+    <Folder Include="dbo\Stored Procedures\DashboardModule" />
+    <Folder Include="dbo\Stored Procedures\NoticeModule" />
+    <Folder Include="dbo\Stored Procedures\StudentDocumentModule" />
+    <Folder Include="dbo\Stored Procedures\MobileAppModule" />
+    <Folder Include="dbo\Stored Procedures\TeacherAppModule" />
+    <Folder Include="dbo\Stored Procedures\LeavingCertificateModule" />
+    <Folder Include="dbo\Stored Procedures\PromoteModule" />
+    <Folder Include="dbo\Stored Procedures\ImportModule" />
+    <Folder Include="dbo\Stored Procedures\SchoolEventModule" />
+    <Folder Include="dbo\Stored Procedures\SchoolHolidayModule" />
+    <Folder Include="dbo\Stored Procedures\WeeklyDayOffModule" />
+    <Folder Include="dbo\Stored Procedures\TeacherGradeDivisionMappingModule" />
+    <Folder Include="dbo\Stored Procedures\ExportModule" />
+    <Folder Include="dbo\Stored Procedures\SubjectMasterModule" />
+    <Folder Include="dbo\Stored Procedures\SubjectMappingModule" />
+    <Folder Include="dbo\Stored Procedures\SchoolMonthEventModule" />
+    <Folder Include="dbo\Stored Procedures\SchoolCalendarModule" />
+    <Folder Include="dbo\Stored Procedures\TeacherSubjectMapping" />
+    <Folder Include="dbo\Stored Procedures\ClassTeacherDataModule" />
+    <Folder Include="dbo\Stored Procedures\SchoolVacationModule" />
+    <Folder Include="dbo\Stored Procedures\TeacherCountPerSubjectAnalyzerModule" />
+    <Folder Include="dbo\Stored Procedures\TeacherOneDayLectureModule" />
+    <Folder Include="dbo\Stored Procedures\TeachingLoadAnalysisModule" />
+    <Folder Include="dbo\Stored Procedures\MissingClassAttendanceReportModule" />
+    <Folder Include="dbo\Sequences" />
+    <Folder Include="dbo\Stored Procedures\AdhocFeesModule" />
+    <Folder Include="dbo\Stored Procedures\SurveyModule" />
+    <Folder Include="dbo\Stored Procedures\ClassWiseTeacherAndStudentModule" />
+    <Folder Include="dbo\Stored Procedures\TransportModule" />
+    <Folder Include="dbo\Types" />
+    <Folder Include="dbo\Stored Procedures\ParentAppModule" />
+    <Folder Include="dbo\Stored Procedures\TransportFeeModule" />
+    <Folder Include="dbo\Stored Procedures\StudentKitFeeModule" />
+    <Folder Include="dbo\Stored Procedures\CabDriverAppModule" />
+    <Folder Include="dbo\Stored Procedures\StudentReportModule" />
+    <Folder Include="dbo\Stored Procedures\GalleryModule" />
+    <Folder Include="dbo\Stored Procedures\SchedularNotificationModule" />
+    <Folder Include="dbo\Stored Procedures\StudentEnquiryModule" />
+    <Folder Include="dbo\Stored Procedures\RegistrationFeeModule" />
+    <Folder Include="dbo\Stored Procedures\CBSE_ExamModule" />
+    <Folder Include="dbo\Stored Procedures\CBSE_ExamResultModule" />
+    <Folder Include="dbo\Stored Procedures\CBSE_ExamReportCardModule" />
+    <Folder Include="dbo\Stored Procedures\BulkAttendanceUpdateModule" />
+    <Folder Include="dbo\Stored Procedures\CBSE_AcademicAssessmentReport" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\Role.sql" />
+    <Build Include="dbo\Tables\ExceptionLog.sql" />
+    <Build Include="dbo\Tables\User.sql" />
+    <Build Include="dbo\Tables\UserRole.sql" />
+    <Build Include="dbo\Tables\Module.sql" />
+    <Build Include="dbo\Tables\Permission.sql" />
+    <Build Include="dbo\Tables\RolePermission.sql" />
+    <None Include="Post Deployment\Script.User.sql" />
+    <Build Include="dbo\Tables\Title.sql" />
+    <None Include="Post Deployment\Script.Title.sql" />
+    <None Include="Post Deployment\Script.UserRole.sql" />
+    <None Include="Post Deployment\Script.Permission.sql" />
+    <None Include="Post Deployment\Script.Module.sql" />
+    <None Include="Post Deployment\Script.RolePermission.sql" />
+    <Build Include="dbo\Tables\UserResetPassword.sql" />
+    <Build Include="dbo\Tables\MediumType.sql" />
+    <Build Include="dbo\Tables\Country.sql" />
+    <Build Include="dbo\Tables\State.sql" />
+    <Build Include="dbo\Tables\District.sql" />
+    <Build Include="dbo\Tables\Taluka.sql" />
+    <None Include="Post Deployment\Script.MediumType.sql" />
+    <None Include="Post Deployment\Script.Country.sql" />
+    <None Include="Post Deployment\Script.State.sql" />
+    <Build Include="dbo\Tables\CabDriver.sql" />
+    <Build Include="dbo\Tables\Student.sql" />
+    <Build Include="dbo\Tables\Parent.sql" />
+    <Build Include="dbo\Tables\School.sql" />
+    <Build Include="dbo\Tables\Teacher.sql" />
+    <Build Include="dbo\Tables\StudentGradeDivisionMapping.sql" />
+    <Build Include="dbo\Tables\AcademicYear.sql" />
+    <Build Include="dbo\Tables\ParentStudentMapping.sql" />
+    <Build Include="dbo\Tables\Grade.sql" />
+    <Build Include="dbo\Tables\Division.sql" />
+    <None Include="Post Deployment\Script.District.sql" />
+    <None Include="Post Deployment\Script.Taluka.sql" />
+    <None Include="Post Deployment\Script.AcademicYear.sql" />
+    <Build Include="dbo\Tables\SchoolGradeDivisionMatrix.sql" />
+    <Build Include="dbo\Tables\Clerk.sql" />
+    <Build Include="dbo\Tables\Admin.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolModule\uspAcademicYearSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CabDriverModule\uspCabDriverSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CabDriverModule\uspCabDriverGridSelect.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Build>
+    <Build Include="dbo\Stored Procedures\ClerkModule\uspClerkGridSelect.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Build>
+    <Build Include="dbo\Stored Procedures\ClerkModule\uspClerkSelect.sql" />
+    <Build Include="dbo\Stored Procedures\ClerkModule\uspClerkUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\MasterModule\uspCountryMasterSelect.sql" />
+    <Build Include="dbo\Stored Procedures\DivisionModule\uspDivisionUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\DivisionModule\uspDivisionGridSelect.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Build>
+    <Build Include="dbo\Stored Procedures\DivisionModule\uspDivisionSelect.sql" />
+    <Build Include="dbo\Stored Procedures\GradeModule\uspGradeGridSelect.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Build>
+    <Build Include="dbo\Stored Procedures\GradeModule\uspGradeSelect.sql" />
+    <Build Include="dbo\Stored Procedures\GradeModule\uspGradeUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\MasterModule\uspGradeDivisionMasterSelect.sql" />
+    <Build Include="dbo\Stored Procedures\ParentModule\uspParentGridSelect.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Build>
+    <Build Include="dbo\Stored Procedures\ParentModule\uspParentSelect.sql" />
+    <Build Include="dbo\Stored Procedures\ParentModule\uspParentUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\CommonModule\uspExceptionLogInsert.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolModule\uspSchoolGradeDivisionMatrixCascadeSelect.sql" />
+    <Build Include="dbo\Stored Procedures\MasterModule\uspMediumTypeSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolModule\uspSchoolUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolModule\uspSchoolSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentModule\uspStudentUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\StudentModule\uspStudentSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentModule\uspStudentGridSelect.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Build>
+    <Build Include="dbo\Stored Procedures\TeacherModule\uspTeacherGridSelect.sql">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Build>
+    <Build Include="dbo\Stored Procedures\TeacherModule\uspTeacherSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherModule\uspTeacherUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\UserModule\uspUserInfoSelect.sql" />
+    <Build Include="dbo\Stored Procedures\UserModule\uspUsernameValid.sql" />
+    <Build Include="dbo\Stored Procedures\UserModule\uspUserPasswordSaltByUserIdSelect.sql" />
+    <Build Include="dbo\Stored Procedures\UserModule\uspUserPasswordSaltSelect.sql" />
+    <Build Include="dbo\Stored Procedures\UserModule\uspUserPasswordUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\UserModule\uspUserResetPasswordInsert.sql" />
+    <Build Include="dbo\Stored Procedures\UserModule\uspUserResetPasswordTokenValid.sql" />
+    <Build Include="dbo\Stored Procedures\UserModule\uspUserUnameSelect.sql" />
+    <Build Include="dbo\Stored Procedures\UserModule\uspUserUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\UserModule\uspUserValid.sql" />
+    <Build Include="dbo\Stored Procedures\AdminModule\uspAdminUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\AdminModule\uspAdminSelect.sql" />
+    <Build Include="dbo\Stored Procedures\AdminModule\uspAdminGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\AccessModule\uspPermissionSelect.sql" />
+    <Build Include="dbo\Stored Procedures\AccessModule\uspRoleSelect.sql" />
+    <Build Include="dbo\Stored Procedures\AccessModule\uspRolePermissionSelect.sql" />
+    <Build Include="dbo\Stored Procedures\AccessModule\uspRolePermissionUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\AccessModule\uspModuleSelect.sql" />
+    <Build Include="dbo\Tables\MonthMaster.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolGradeDivisionMatrixModule\uspSchoolGradeDivisionMatrixGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolGradeDivisionMatrixModule\uspSchoolGradeDivisionMatrixSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolGradeDivisionMatrixModule\uspSchoolGradeDivisionMatrixUpsert.sql" />
+    <Build Include="dbo\Tables\FeePayment.sql" />
+    <Build Include="dbo\Tables\FeePaymentDetails.sql" />
+    <Build Include="dbo\Tables\FeePaymentAppliedWavierMapping.sql" />
+    <Build Include="dbo\Tables\FeeParticular.sql" />
+    <Build Include="dbo\Tables\FeeParticularWavierMapping.sql" />
+    <Build Include="dbo\Tables\FeeWavierTypes.sql" />
+    <Build Include="dbo\Tables\StudentAttendance.sql" />
+    <Build Include="dbo\Tables\HomeWork.sql" />
+    <Build Include="dbo\Tables\HomeWorkDetails.sql" />
+    <Build Include="dbo\Tables\CertificateAudits.sql" />
+    <Build Include="dbo\Stored Procedures\CertificateModule\uspCertificateSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentModule\uspStudentNameSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CertificateModule\uspCertificateUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\CertificateModule\uspCertificateGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\HomeworkModule\uspHomeworkUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\HomeworkModule\uspHomeWorkGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\HomeworkModule\uspHomeWorkSelect.sql" />
+    <Build Include="dbo\Stored Procedures\AttendanceModule\uspStudentAttendanceUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\AttendanceModule\uspStudentAttendanceGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeeParticularInsert.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeeParticularSelect.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeeParticularGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeeParticularUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeeWavierTypesUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeeWavierTypesGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeeWavierTypesSelect.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeePaymentUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolModule\uspSchoolSettingSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolModule\uspSchoolSettingUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolModule\uspMonthMasterSelect.sql" />
+    <Build Include="dbo\Tables\FeeAdditionalDiscount.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeePaymentSelect.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeePaymentGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeeParticularWavierMappingSelect.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeeWaiverTypeSelectAllByAcademic.sql" />
+    <Build Include="dbo\User Defined Functions\udfStudentTotalFee.sql" />
+    <Build Include="dbo\User Defined Functions\udfStudentDiscountedFee.sql" />
+    <Build Include="dbo\User Defined Functions\udfStudentPaidAmount.sql" />
+    <Build Include="dbo\User Defined Functions\udfStudentOtherPaidAmount.sql" />
+    <Build Include="dbo\User Defined Functions\udfStudentDueAmount.sql" />
+    <Build Include="dbo\User Defined Functions\udfStudentChequeClearedAmount.sql" />
+    <Build Include="dbo\User Defined Functions\udfStudentChequeUnClearAmount.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspGradeDivisionMatrixForFeesStructureCascadeSelect.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeePaymentHistoryGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeeParticularIsPublishUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeeParticularClone.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeePaymentHistorySelect.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeePaymentChequeClear.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeePaymentDelete.sql" />
+    <Build Include="dbo\Stored Procedures\AttendanceModule\uspTeacherDropdownSelect.sql" />
+    <Build Include="dbo\Stored Procedures\DashboardModule\uspDashboardSelect.sql" />
+    <Build Include="dbo\Stored Procedures\DashboardModule\uspDashBoardStaffDetailsSelect.sql" />
+    <Build Include="dbo\Stored Procedures\DashboardModule\uspDashboardCountSelect.sql" />
+    <Build Include="dbo\Stored Procedures\GradeModule\uspGradeExits.sql" />
+    <Build Include="dbo\Stored Procedures\GradeModule\uspGradeDelete.sql" />
+    <Build Include="dbo\Stored Procedures\DivisionModule\uspDivisionDelete.sql" />
+    <Build Include="dbo\Stored Procedures\StudentModule\uspGradeDivisionMatrixForSubjectCascadeSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CertificateModule\uspBonafiedCertificateSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CertificateModule\uspCharcterCertificateSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CertificateModule\uspIdCardSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CabDriverModule\uspCabDriverDelete.sql" />
+    <Build Include="dbo\Stored Procedures\ClerkModule\uspClerkDelete.sql" />
+    <Build Include="dbo\Stored Procedures\ParentModule\uspParentDelete.sql" />
+    <Build Include="dbo\Stored Procedures\StudentModule\uspStudentDelete.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherModule\uspTeacherDelete.sql" />
+    <Build Include="dbo\Stored Procedures\CertificateModule\uspCertificateDelete.sql" />
+    <Build Include="dbo\Stored Procedures\HomeworkModule\uspHomeWorkDelete.sql" />
+    <Build Include="dbo\Stored Procedures\AdminModule\uspAdminDelete.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeeWavierTypeDelete.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeeParticularDelete.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolGradeDivisionMatrixModule\uspSchoolGradeDivisionMatrixDelete.sql" />
+    <Build Include="dbo\Tables\Notice.sql" />
+    <Build Include="dbo\Tables\NoticeDetails.sql" />
+    <Build Include="dbo\Stored Procedures\NoticeModule\uspNoticeDelete.sql" />
+    <Build Include="dbo\Stored Procedures\NoticeModule\uspNoticeGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\NoticeModule\uspNoticeSelect.sql" />
+    <Build Include="dbo\Stored Procedures\NoticeModule\uspNoticeUpsert.sql" />
+    <Build Include="dbo\Tables\StudentDocuments.sql" />
+    <Build Include="dbo\Stored Procedures\StudentDocumentModule\uspStudentDocumentSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentDocumentModule\uspStudentDocumentGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentDocumentModule\uspStudentDocumentInsert.sql" />
+    <Build Include="dbo\Stored Procedures\StudentDocumentModule\StudentDocumentDelete.sql" />
+    <Build Include="dbo\Stored Procedures\MobileAppModule\uspStudentProfileUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherAppModule\uspTeacherProfileUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeeParticularCopyFromLastAY.sql" />
+    <Build Include="dbo\Stored Procedures\MasterModule\uspStudentDropdownMasterSelect.sql" />
+    <Build Include="dbo\Stored Procedures\MasterModule\uspTeacherDropdownMasterSelect.sql" />
+    <Build Include="dbo\Stored Procedures\MasterModule\uspClerkDropdownMasterSelect.sql" />
+    <Build Include="dbo\Stored Procedures\MasterModule\uspCabDriverDropdownMasterSelect.sql" />
+    <Build Include="dbo\Tables\NoticeMapping.sql" />
+    <Build Include="dbo\Tables\LeavingCertificateAudits.sql" />
+    <Build Include="dbo\Stored Procedures\LeavingCertificateModule\uspLeavingCertificateSelect.sql" />
+    <Build Include="dbo\Stored Procedures\LeavingCertificateModule\uspLeavingCertificateUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\MobileAppModule\uspHomeworkParentAppSelect.sql" />
+    <Build Include="dbo\Stored Procedures\MobileAppModule\uspNoticeParentAppSelect.sql" />
+    <Build Include="dbo\Tables\ClassTimeTable.sql" />
+    <Build Include="dbo\Tables\ClassTimeTableRowDetail.sql" />
+    <Build Include="dbo\Tables\ClassTimeTableColumnDetail.sql" />
+    <Build Include="dbo\Stored Procedures\ClassTimeTableModule\uspClassTimeTableUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\ImportModule\uspImportStudentData.sql" />
+    <Build Include="dbo\Stored Procedures\ClassTimeTableModule\uspClassTimeTableGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\ClassTimeTableModule\uspClassTimeTableDelete.sql" />
+    <Build Include="dbo\Stored Procedures\ClassTimeTableModule\uspClassTimeTableSelect.sql" />
+    <Build Include="dbo\Stored Procedures\LeavingCertificateModule\uspLeavingCertificateHistory.sql" />
+    <Build Include="dbo\Stored Procedures\LeavingCertificateModule\uspLeavingCertificatePrintSelect.sql" />
+    <Build Include="dbo\Stored Procedures\LeavingCertificateModule\uspLeavingCertificateStatusUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\LeavingCertificateModule\uspLeavingCertificateGenerateAsDuplicate.sql" />
+    <Build Include="dbo\Stored Procedures\ClassTimeTableModule\uspTeacherClassTimeTableSelect.sql" />
+    <Build Include="dbo\Stored Procedures\ClassTimeTableModule\uspStudentClassTimeTableSelect.sql" />
+    <Build Include="dbo\Stored Procedures\ClassTimeTableModule\uspClassTimeTableIsActiveUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\AttendanceModule\uspStudentAttendanceReportGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\HomeworkModule\uspHomeworkPublishUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\AttendanceModule\uspClassAttendanceReportDatewise.sql" />
+    <Build Include="dbo\Stored Procedures\NoticeModule\uspNoticePublishUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\PromoteModule\uspPromoteGridSelect.sql" />
+    <Build Include="dbo\Tables\SchoolHolidays.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspPaymentAnalyticsDivision.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspPaymentAnalyticsGrade.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspPaymentAnalyticsSchool.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspPaymentAnalyticsStudent.sql" />
+    <Build Include="dbo\Tables\SchoolEvent.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolEventModule\uspSchoolEventGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolEventModule\uspSchoolEventSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolEventModule\uspSchoolEventUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolEventModule\uspSchoolEventDelete.sql" />
+    <Build Include="dbo\Tables\SchoolEventDetails.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolEventModule\uspSchoolEventPublishUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\MobileAppModule\uspSchoolAppDetailSelect.sql" />
+    <Build Include="dbo\Stored Procedures\MobileAppModule\uspStudentAppDetailSelectByParentId.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolHolidayModule\uspSchoolHolidayGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolHolidayModule\uspSchoolHolidaySelect.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolHolidayModule\uspSchoolHolidayInsert.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolHolidayModule\uspSchoolHolidayDelete.sql" />
+    <Build Include="dbo\Tables\WeeklyOff.sql" />
+    <Build Include="dbo\Stored Procedures\WeeklyDayOffModule\uspWeeklyDayOffSelect.sql" />
+    <Build Include="dbo\Stored Procedures\WeeklyDayOffModule\uspWeeklyDayOffInsert.sql" />
+    <Build Include="dbo\Stored Procedures\UserModule\uspUserOneTimePasswordSelect.sql" />
+    <Build Include="dbo\Stored Procedures\UserModule\uspOneTimePasswordReset.sql" />
+    <Build Include="dbo\Tables\SchoolEventMapping.sql" />
+    <Build Include="dbo\Tables\TeacherGradeDivisionMapping.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherGradeDivisionMappingModule\uspTeacherGradeDivisionMappingGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherGradeDivisionMappingModule\uspTeacherGradeDivisionMappingUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\ExportModule\uspStudentExport.sql" />
+    <Build Include="dbo\Stored Procedures\MobileAppModule\uspStudentProfileSelect.sql" />
+    <Build Include="dbo\Stored Procedures\ImportModule\uspImportTeacherData.sql" />
+    <Build Include="dbo\Tables\SubjectMaster.sql" />
+    <Build Include="dbo\Stored Procedures\SubjectMasterModule\uspSubjectMasterGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SubjectMasterModule\uspSubjectMasterUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\SubjectMasterModule\uspSubjectMasterSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SubjectMasterModule\uspSubjectMasterDelete.sql" />
+    <Build Include="dbo\Tables\SubjectMapping.sql" />
+    <Build Include="dbo\Stored Procedures\ExportModule\uspPaymentAnalyticsExportGradewise.sql" />
+    <Build Include="dbo\Stored Procedures\ExportModule\uspPaymentanalyticsExportSchoolwise.sql" />
+    <Build Include="dbo\Stored Procedures\ExportModule\uspPaymentAnalyticsExportDivisionwise.sql" />
+    <Build Include="dbo\Stored Procedures\SubjectMappingModule\uspSubjectMappingGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SubjectMappingModule\uspSubjectMappingUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\SubjectMappingModule\uspSubjectMasterDropdown.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolCalendarModule\uspSchoolCalendarEventHolidaysselect.sql" />
+    <Build Include="dbo\Stored Procedures\ExportModule\uspTeacherExport.sql" />
+    <Build Include="dbo\Stored Procedures\AttendanceModule\uspStudentAttendanceMobileAppSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolMonthEventModule\uspSchoolEventMonthlyStaffSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolMonthEventModule\uspSchoolEventMonthlyParentsSelect.sql" />
+    <Build Include="dbo\Tables\TeacherSubjectMapping.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherSubjectMapping\uspTeacherSubjectMappingGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherSubjectMapping\uspTeacherSubjectMappingUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\ClassTeacherDataModule\uspClassTeacherDataSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolModule\uspSchoolLanguageSelect.sql" />
+    <Build Include="dbo\Stored Procedures\HomeworkModule\uspSubjectDropDownSelect.sql" />
+    <Build Include="dbo\Tables\SchoolVacation.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolVacationModule\uspSchoolVacationGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolVacationModule\uspSchoolVacationSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolVacationModule\uspSchoolVacationDelete.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolVacationModule\uspSchoolVacationUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherCountPerSubjectAnalyzerModule\uspTeacherCountPerSubjectSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolHolidayModule\uspCheckHolidayExits.sql" />
+    <Build Include="dbo\Stored Procedures\ImportModule\uspImportSubjectData.sql" />
+    <Build Include="dbo\Stored Procedures\StudentModule\uspCheckStudentExist.sql" />
+    <Build Include="dbo\User Defined Functions\udfGetSchoolHolidays.sql" />
+    <Build Include="dbo\User Defined Functions\udfGetSchoolWorkingDaysUptoCurrentDate.sql" />
+    <Build Include="dbo\Stored Procedures\MissingClassAttendanceReportModule\uspClassAttendanceMissingReportSelect.sql" />
+    <Build Include="dbo\Tables\TeacherAcademicDetail.sql" />
+    <Build Include="dbo\Stored Procedures\MasterModule\uspTeacherDropdownMasterWithoutSubjectSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SubjectMasterModule\uspSubjectDropdown.sql" />
+    <Build Include="dbo\Stored Procedures\SubjectMasterModule\uspSubjectDropdownSelectByClass.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherOneDayLectureModule\uspTeacherOneDayLectureSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherAppModule\uspClassTeacherGradeDivisionSelect.sql" />
+    <Build Include="dbo\Stored Procedures\DashboardModule\uspDashboardGirlsBoysCountSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TeachingLoadAnalysisModule\UspTeachingLoadAnalysisSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherAppModule\uspTeacherHomeworkSelect.sql" />
+    <Build Include="dbo\Stored Procedures\AttendanceModule\uspClassAttendanceDateExitsReportSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherAppModule\uspNoticesTeacherAppSelect.sql" />
+    <Build Include="dbo\Tables\AdhocFeePayment.sql" />
+    <Build Include="dbo\Sequences\InvoiceSequence.sql" />
+    <Build Include="dbo\Tables\AdhocParticularMaster.sql" />
+    <Build Include="dbo\Stored Procedures\AdhocFeesModule\uspAdhocFeePaymentChequeClear.sql" />
+    <Build Include="dbo\Stored Procedures\AdhocFeesModule\uspAdhocFeePaymentDelete.sql" />
+    <Build Include="dbo\Stored Procedures\AdhocFeesModule\uspAdhocFeePaymentGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\AdhocFeesModule\uspAdhocFeePaymentHistoryGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\AdhocFeesModule\uspAdhocFeePaymentHistorySelect.sql" />
+    <Build Include="dbo\Stored Procedures\AdhocFeesModule\uspAdhocFeePaymentSelect.sql" />
+    <Build Include="dbo\Stored Procedures\AdhocFeesModule\uspAdhocFeePaymentUpsert.sql" />
+    <Build Include="dbo\User Defined Functions\udfStudentAdhocTotalAmount.sql" />
+    <Build Include="dbo\User Defined Functions\udfStudentAdhocChequeClearedAmount.sql" />
+    <Build Include="dbo\User Defined Functions\udfStudentAdhocChequeUnClearAmount.sql" />
+    <Build Include="dbo\Stored Procedures\NoticeModule\uspNoticeFromRoleAppSelect.sql" />
+    <Build Include="dbo\Stored Procedures\DashboardModule\uspDashboardIdealTeachersSelect.sql" />
+    <Build Include="dbo\Stored Procedures\AdhocFeesModule\uspAdhocParticularMasterInsert.sql" />
+    <Build Include="dbo\Stored Procedures\AdhocFeesModule\uspAdhocParticularMasterListSelect.sql" />
+    <Build Include="dbo\User Defined Functions\udfStudentPaymentHistoryCheck.sql" />
+    <Build Include="dbo\Stored Procedures\SubjectMasterModule\uspCheckSubjectExist.sql" />
+    <Build Include="dbo\Stored Procedures\ClassTimeTableModule\uspClassTimeTableSelectById.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherModule\uspCheckTeacherExist.sql" />
+    <Build Include="dbo\Stored Procedures\SubjectMappingModule\uspCheckExistSubject.sql" />
+    <Build Include="dbo\Stored Procedures\SubjectMappingModule\uspSubjectMappingDelete.sql" />
+    <Build Include="dbo\Stored Procedures\PromoteModule\uspStudentPassOrFailUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\PromoteModule\uspPromoteStudentToNextYearUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherAppModule\uspStudentTeacherAppSelect.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspPaymentReportDaywise.sql" />
+    <Build Include="dbo\Stored Procedures\ImportModule\uspCheckPaymentHistoryForStudent.sql" />
+    <Build Include="dbo\Stored Procedures\SchoolCalendarModule\uspSchoolCalendarEventHolidaysForTeacherAppSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherSubjectMapping\uspCheckExistSubjectTimetable.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherSubjectMapping\uspTeacherSubjectMappingDelete.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherAppModule\uspClassAttendanceMissingReportAppSelect.sql" />
+    <Build Include="dbo\Tables\Survey.sql" />
+    <Build Include="dbo\Tables\SurveyDetails.sql" />
+    <Build Include="dbo\Tables\SurveyMapping.sql" />
+    <Build Include="dbo\Stored Procedures\SurveyModule\uspSurveyDelete.sql" />
+    <Build Include="dbo\Stored Procedures\SurveyModule\uspSurveySelect.sql" />
+    <Build Include="dbo\Stored Procedures\SurveyModule\uspSurveyFromRoleAppSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SurveyModule\uspSurveyGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SurveyModule\uspSurveyPublishUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\SurveyModule\uspSurveyUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\ClassWiseTeacherAndStudentModule\uspClassWiseStudentSelect.sql" />
+    <Build Include="dbo\Stored Procedures\ClassWiseTeacherAndStudentModule\uspClassTeacherSelect.sql" />
+    <Build Include="dbo\Tables\TransportArea.sql" />
+    <Build Include="dbo\Tables\TransportRoute.sql" />
+    <Build Include="dbo\Tables\TransportStoppage.sql" />
+    <Build Include="dbo\Tables\Vehicle.sql" />
+    <Build Include="dbo\Tables\VehicleDetail.sql" />
+    <Build Include="dbo\Types\ClassTimeTableColumnDetailType.sql" />
+    <Build Include="dbo\Types\ClassTimeTableMarkActiveType.sql" />
+    <Build Include="dbo\Types\ClassTimeTableRowDetailType.sql" />
+    <Build Include="dbo\Types\DivisionType.sql" />
+    <Build Include="dbo\Types\FeeParticularType.sql" />
+    <Build Include="dbo\Types\FeeParticularWavierMappingType.sql" />
+    <Build Include="dbo\Types\FeePaymentAppliedWavierMappingType.sql" />
+    <Build Include="dbo\Types\FeePaymentDetailType.sql" />
+    <Build Include="dbo\Types\HolidayDetailsTypes.sql" />
+    <Build Include="dbo\Types\HomeWorkFileDetailType.sql" />
+    <Build Include="dbo\Types\NoticeFileDetailType.sql" />
+    <Build Include="dbo\Types\RolePermissionType.sql" />
+    <Build Include="dbo\Types\SchoolEventDetailType.sql" />
+    <Build Include="dbo\Types\SingleIdType.sql" />
+    <Build Include="dbo\Types\StudentAttendanceType.sql" />
+    <Build Include="dbo\Types\StudentDocumentType.sql" />
+    <Build Include="dbo\Types\StudentImportType.sql" />
+    <Build Include="dbo\Types\SubjectImportType.sql" />
+    <Build Include="dbo\Types\SubjectMappingType.sql" />
+    <Build Include="dbo\Types\SurveyFileDetailType.sql" />
+    <Build Include="dbo\Types\TeacherImportType.sql" />
+    <Build Include="dbo\Types\TeacherType.sql" />
+    <Build Include="dbo\Types\WeekDays.sql" />
+    <Build Include="dbo\Types\SurveyQuestionType.sql" />
+    <Build Include="dbo\Tables\SurveyQuestionDetails.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspVehicleUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspVehicleGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspCabDriverDropdown.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspVehicleSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspVehicleDelete.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspAreaNameDropdown.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspVehicleDropdown.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspTransportAreaGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspTransportAreaSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspTransportAreaDelete.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspTransportAreaUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspTransportRouteGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspTransportRouteSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspTransportRouteDelete.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspTransportRouteUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspTransportStoppageGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspTransportStoppageSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspTransportStoppageDelete.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspTransportStoppageUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherAppModule\uspClassTeacherClassSubjectSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherAppModule\uspHolidayTeacherAttendanceSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspVehicleActiveInActive.sql" />
+    <Build Include="dbo\Stored Procedures\MobileAppModule\uspMobileAppParentSelect.sql" />
+    <Build Include="dbo\Stored Procedures\MobileAppModule\uspMobileAppParentProfileUpdate.sql" />
+    <Build Include="dbo\Tables\FeeWavierTypesInstallmentsDetails.sql" />
+    <Build Include="dbo\Types\FeeWavierTypesInstallmentsDetailsType.sql" />
+    <Build Include="dbo\Stored Procedures\DashboardModule\uspAdminDashboardCountSelect.sql" />
+    <Build Include="dbo\Stored Procedures\DashboardModule\uspTeacherDashboardCountSelect.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspFeePaymentDueByAYSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentModule\uspStudentNameIsArchiveIncludedSelect.sql" />
+    <Build Include="dbo\Stored Procedures\ParentAppModule\uspParentAppFeePaymentSelect.sql" />
+    <Build Include="dbo\Stored Procedures\AttendanceModule\uspAttendanceHolidayExitSelect.sql" />
+    <Build Include="dbo\User Defined Functions\udfGetWeeklyOff.sql" />
+    <Build Include="dbo\Tables\TransportConsumerStoppageMapping.sql" />
+    <Build Include="dbo\Tables\TransportFeeAdditionalDiscount.sql" />
+    <Build Include="dbo\Tables\TransportFeePayment.sql" />
+    <Build Include="dbo\Tables\TransportFeePaymentDetails.sql" />
+    <Build Include="dbo\Tables\TransportFeePaymentAppliedMonthMapping.sql" />
+    <Build Include="dbo\User Defined Functions\udfConsumerTransportChequeClearedAmount.sql" />
+    <Build Include="dbo\User Defined Functions\udfConsumerTransportChequeUnClearAmount.sql" />
+    <Build Include="dbo\User Defined Functions\udfConsumerTransportDiscountedFee.sql" />
+    <Build Include="dbo\User Defined Functions\udfConsumerTransportDueAmount.sql" />
+    <Build Include="dbo\User Defined Functions\udfConsumerTransportOtherPaidAmount.sql" />
+    <Build Include="dbo\User Defined Functions\udfConsumerTransportPaidAmount.sql" />
+    <Build Include="dbo\User Defined Functions\udfConsumerTransportTotalFee.sql" />
+    <Build Include="dbo\Tables\SchoolTransportSetting.sql" />
+    <Build Include="dbo\Types\Months.sql" />
+    <Build Include="dbo\Tables\SchoolSetting.sql" />
+    <Build Include="dbo\Stored Procedures\TransportFeeModule\uspTransportFeePaymentChequeClear.sql" />
+    <Build Include="dbo\Stored Procedures\TransportFeeModule\uspTransportFeePaymentDelete.sql" />
+    <Build Include="dbo\Stored Procedures\TransportFeeModule\uspTransportFeePaymentDueByAYSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TransportFeeModule\uspTransportFeePaymentStudentGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TransportFeeModule\uspTransportFeePaymentHistoryGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TransportFeeModule\uspTransportFeePaymentHistorySelect.sql" />
+    <Build Include="dbo\Stored Procedures\TransportFeeModule\uspTransportFeePaymentSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TransportFeeModule\uspTransportFeePaymentUpsert.sql" />
+    <Build Include="dbo\Types\TransportFeePaymentDetailType.sql" />
+    <Build Include="dbo\Types\TransportFeePaymentAppliedMonthMappingType.sql" />
+    <Build Include="dbo\Stored Procedures\TransportFeeModule\uspTransportFeePaymentStaffGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TransportFeeModule\uspTransportFeePaymentMonthMastersSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspTransportStaffSelect.sql" />
+    <Build Include="dbo\User Defined Functions\udfConsumerTransportStoppageChequeClearedAmount.sql" />
+    <Build Include="dbo\User Defined Functions\udfConsumerTransportStoppageChequeUnClearAmount.sql" />
+    <Build Include="dbo\User Defined Functions\udfConsumerTransportStoppageDiscountedFee.sql" />
+    <Build Include="dbo\User Defined Functions\udfConsumerTransportStoppageDueAmount.sql" />
+    <Build Include="dbo\User Defined Functions\udfConsumerTransportStoppageOtherPaidAmount.sql" />
+    <Build Include="dbo\User Defined Functions\udfConsumerTransportStoppagePaidAmount.sql" />
+    <Build Include="dbo\User Defined Functions\udfConsumerTransportStoppageTotalFee.sql" />
+    <Build Include="dbo\User Defined Functions\udfConsumerTransportStoppageTotalFeeByDate.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspTransportConsumerSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TransportFeeModule\uspTransportFeePaymentStoppageGridSelect.sql" />
+    <Build Include="dbo\User Defined Functions\udfConsumerTransportStoppageNoOfMonths.sql" />
+    <Build Include="dbo\Stored Procedures\ParentAppModule\uspOneMonthEventParentAppSelect.sql" />
+    <Build Include="dbo\Stored Procedures\ParentAppModule\uspTeacherUpcomingLecturesParentAppSelect.sql" />
+    <Build Include="dbo\Stored Procedures\ParentAppModule\uspAttendanceStatusParentAppSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspConsumerTransportMappingUpsert.sql" />
+    <Build Include="dbo\Types\TransportConsumerType.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspConsumerMappingSelectByStoppageId.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspTransportConsumerMappingDelete.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspExistingTransportConsumerSelect.sql" />
+    <Build Include="dbo\Stored Procedures\ParentAppModule\uspStudentGradeDivisionParentAppSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspCheckVehicleExist.sql" />
+    <Build Include="dbo\Stored Procedures\ParentAppModule\uspParentAppTransportFeePaymentSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherGradeDivisionMappingModule\uspClassTeacherMappingDelete.sql" />
+    <Build Include="dbo\Sequences\TransportInvoiceSequence.sql" />
+    <Build Include="dbo\Sequences\AdditionalInvoiceSequence.sql" />
+    <Build Include="dbo\Sequences\HostelInvoiceSequence.sql" />
+    <Build Include="dbo\Stored Procedures\TransportFeeModule\uspTransportPaymentReportDaywise.sql" />
+    <Build Include="dbo\Sequences\SchoolKitInvoiceSequence.sql" />
+    <Build Include="dbo\Stored Procedures\UserModule\uspAllOneTimePasswordSelect.sql" />
+    <Build Include="dbo\Tables\StudentKitFeeParticular.sql" />
+    <Build Include="dbo\Types\StudentKitFeeParticularType.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspStudentKitFeeParticularInsert.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspStudentKitFeeParticularUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspStudentKitFeeParticularSelect.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspGradeDivisionMatrixForStudentKitFeesStructureCascadeSelect.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspStudentKitFeeParticularGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspStudentKitFeeParticularIsPublishUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspStudentKitFeeParticularCopyFromLastAY.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspStudentKitFeeParticularClone.sql" />
+    <Build Include="dbo\Stored Procedures\FeesModule\uspStudentKitFeeParticularDelete.sql" />
+    <Build Include="dbo\Stored Procedures\TransportFeeModule\uspTransportPaymentAnalyticsSchool.sql" />
+    <Build Include="dbo\Stored Procedures\TransportFeeModule\uspTransportPaymentAnalyticsGrade.sql" />
+    <Build Include="dbo\Stored Procedures\TransportFeeModule\uspTransportPaymentAnalyticsDivision.sql" />
+    <Build Include="dbo\Stored Procedures\TransportFeeModule\uspTransportPaymentAnalyticsStudent.sql" />
+    <Build Include="dbo\Stored Procedures\TransportFeeModule\uspTransportPaymentAnalyticsStaff.sql" />
+    <Build Include="dbo\Stored Procedures\ExportModule\uspTransportPaymentAnalyticsExportSchoolwise.sql" />
+    <Build Include="dbo\Stored Procedures\ExportModule\uspTransportPaymentAnalyticsExportGradewise.sql" />
+    <Build Include="dbo\Stored Procedures\ExportModule\uspTransportPaymentAnalyticsExportDivisionwise.sql" />
+    <Build Include="dbo\Stored Procedures\ExportModule\UspTransportPaymentAnalyticsExportStaffList.sql" />
+    <Build Include="dbo\Tables\StudentKitFeePayment.sql" />
+    <Build Include="dbo\Tables\StudentKitFeePaymentDetails.sql" />
+    <Build Include="dbo\Tables\StudentKitFeeAdditionalDiscount.sql" />
+    <Build Include="dbo\Stored Procedures\StudentKitFeeModule\uspStudentKitFeePaymentChequeClear.sql" />
+    <Build Include="dbo\Stored Procedures\StudentKitFeeModule\uspStudentKitFeePaymentDelete.sql" />
+    <Build Include="dbo\Stored Procedures\StudentKitFeeModule\uspStudentKitFeePaymentDueByAYSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentKitFeeModule\uspStudentKitFeePaymentGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentKitFeeModule\uspStudentKitFeePaymentHistoryGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentKitFeeModule\uspStudentKitFeePaymentHistorySelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentKitFeeModule\uspStudentKitFeePaymentSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentKitFeeModule\uspStudentKitFeePaymentUpsert.sql" />
+    <Build Include="dbo\Types\StudentKitFeePaymentDetailType.sql" />
+    <Build Include="dbo\User Defined Functions\udfStudentKitStudentTotalFee.sql" />
+    <Build Include="dbo\User Defined Functions\udfStudentKitStudentPaidAmount.sql" />
+    <Build Include="dbo\User Defined Functions\udfStudentKitStudentOtherPaidAmount.sql" />
+    <Build Include="dbo\User Defined Functions\udfStudentKitStudentDueAmount.sql" />
+    <Build Include="dbo\User Defined Functions\udfStudentKitStudentDiscountedFee.sql" />
+    <Build Include="dbo\User Defined Functions\udfStudentKitStudentChequeUnClearAmount.sql" />
+    <Build Include="dbo\User Defined Functions\udfStudentKitStudentChequeClearedAmount.sql" />
+    <Build Include="dbo\Stored Procedures\ImportModule\uspCheckGeneralRegNoExist.sql" />
+    <Build Include="dbo\User Defined Functions\udfStudentGenRegNoCheck.sql" />
+    <Build Include="dbo\Stored Procedures\StudentModule\uspUpdatePreviousAcademicAYPendingFee.sql" />
+    <Build Include="dbo\Stored Procedures\StudentModule\uspCheckGenRegNoExist.sql" />
+    <Build Include="dbo\Stored Procedures\AdhocFeesModule\uspAdhocFeePayementReportDaywise.sql" />
+    <Build Include="dbo\Stored Procedures\StudentKitFeeModule\uspStudentKitFeePaymentReportDaywise.sql" />
+    <Build Include="dbo\Stored Procedures\ParentAppModule\uspSchoolCalendarEventHolidaysForParentAppSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentKitFeeModule\uspStudentKitPaymentAnalyticsDivision.sql" />
+    <Build Include="dbo\Stored Procedures\StudentKitFeeModule\uspStudentKitPaymentanalyticsGrade.sql" />
+    <Build Include="dbo\Stored Procedures\StudentKitFeeModule\uspStudentKitPaymentAnalyticsSchool.sql" />
+    <Build Include="dbo\Stored Procedures\StudentKitFeeModule\uspStudentKitPaymentAnalyticsStudent.sql" />
+    <Build Include="dbo\Stored Procedures\ExportModule\uspStudentKitPaymentAnalyticsExportSchoolwise.sql" />
+    <Build Include="dbo\Stored Procedures\ExportModule\uspStudentKitPaymentAnalyticsExportGradewise.sql" />
+    <Build Include="dbo\Stored Procedures\ExportModule\uspStudentKitPaymentAnalyticsExportDivisionwise.sql" />
+    <Build Include="dbo\Tables\Trip.sql" />
+    <Build Include="dbo\Tables\TripDetail.sql" />
+    <Build Include="dbo\Stored Procedures\CabDriverAppModule\uspCabDriverProfileAppUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\CabDriverAppModule\uspCabDriverStoppageSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CabDriverAppModule\uspCabDriverRouteSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CabDriverAppModule\uspCabDriverStoppageStudentSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CabDriverAppModule\uspCabDriverTripDetailUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\CabDriverAppModule\uspCabDriverTripUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\CabDriverModule\uspCabDriverUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\LeavingCertificateModule\uspViewLeavingCertificateGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentReportModule\uspRTEStudentCountReportSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentReportModule\uspCategoryWiseStudentCountReportSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentReportModule\uspReligionWiseStudentCountReportSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentReportModule\uspCasteWiseStudentCountReportSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentReportModule\uspStudentGenderCountReportSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentReportModule\uspStudentGenderListReportSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentReportModule\uspRTEStudentListReportSelect.sql" />
+    <Build Include="dbo\Types\MediaType.sql" />
+    <Build Include="dbo\Tables\NoticeMediaDetails.sql" />
+    <Build Include="dbo\Tables\HomeworkMediaDetail.sql" />
+    <Build Include="dbo\Tables\Gallery.sql" />
+    <Build Include="dbo\Tables\GalleryDetails.sql" />
+    <Build Include="dbo\Tables\GalleryMapping.sql" />
+    <Build Include="dbo\Types\GalleryMediaType.sql" />
+    <Build Include="dbo\Tables\GalleryMediaDetails.sql" />
+    <Build Include="dbo\Types\GalleryFileDetailType.sql" />
+    <Build Include="dbo\Stored Procedures\GalleryModule\uspGallerySelect.sql" />
+    <Build Include="dbo\Stored Procedures\GalleryModule\uspGalleryDelete.sql" />
+    <Build Include="dbo\Stored Procedures\GalleryModule\uspGalleryUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\GalleryModule\uspGalleryGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\GalleryModule\uspGalleryFromRoleAppSelect.sql" />
+    <Build Include="dbo\Stored Procedures\GalleryModule\uspGalleryPublishUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\CabDriverAppModule\uspCabDriverStudentInfoSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentModule\uspStudentQRDetailSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentModule\uspAllStudentQRDetailSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentModule\uspStudentCountSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TeacherAppModule\uspGalleryTeacherAppSelect.sql" />
+    <Build Include="dbo\Tables\CBSE_ExamObject.sql" />
+    <Build Include="dbo\Tables\CBSE_ExamMaster.sql" />
+    <Build Include="dbo\Tables\CBSE_ExamType.sql" />
+    <Build Include="dbo\Tables\CBSE_Term.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspExamObjectSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspExamObjectDelete.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspExamObjectUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspExamObjectGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspExamTypeSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspExamTypeUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspTermSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspTermUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspExamMasterDropdown.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspExamMasterSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspExamMasterDelete.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspExamMasterGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspExamMasterUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspClassExamMappingSelect.sql" />
+    <Build Include="dbo\Tables\CBSE_ClassExamMapping.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspClassExamMappingGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspClassExamMappingDelete.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspClassExamMappingUpsert.sql" />
+    <Build Include="dbo\Tables\CBSE_MarksGradeRelation.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspMarkGradeRelationGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspMarkGradeRelationDelete.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspMarkGradeRelationSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspMarkGradeRelationUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspExamObjectPublishUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\MobileAppModule\uspGalleryParentAppSelect.sql" />
+    <Build Include="dbo\Stored Procedures\UserModule\uspUserFCMTokenUpdate.sql" />
+    <Build Include="dbo\Stored Procedures\UserModule\uspUserWithFCMTokenSelect.sql" />
+    <Build Include="dbo\Tables\CabDriverTripCurrentLocation.sql" />
+    <Build Include="dbo\Stored Procedures\CabDriverAppModule\uspTripStudentSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CabDriverAppModule\uspCabDriverLocationInsert.sql" />
+    <Build Include="dbo\Stored Procedures\ParentAppModule\uspCabDriverTripCurrentLocationAppSelect.sql" />
+    <Build Include="dbo\Tables\StudentEnquiry.sql" />
+    <Build Include="dbo\Stored Procedures\StudentEnquiryModule\uspStudentEnquirySelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentEnquiryModule\uspStudentEnquiryGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentEnquiryModule\uspStudentEnquiryUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\StudentEnquiryModule\uspStudentEnquiryDelete.sql" />
+    <Build Include="dbo\Stored Procedures\StudentEnquiryModule\uspCheckStudentEnquiryExist.sql" />
+    <Build Include="dbo\Tables\EnquiryType.sql" />
+    <Build Include="dbo\Tables\EnquiryStatus.sql" />
+    <Build Include="dbo\Stored Procedures\StudentEnquiryModule\EnquiryTypeDropdown.sql" />
+    <Build Include="dbo\Stored Procedures\StudentEnquiryModule\EnquiryStatusDropdown.sql" />
+    <Build Include="dbo\Tables\RegistrationFee.sql" />
+    <Build Include="dbo\Tables\RegistrationFeeDetails.sql" />
+    <Build Include="dbo\Stored Procedures\RegistrationFeeModule\uspRegistrationFeeSelect.sql" />
+    <Build Include="dbo\Stored Procedures\RegistrationFeeModule\uspRegistrationFeeUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\RegistrationFeeModule\uspRegistrationFeeDelete.sql" />
+    <Build Include="dbo\Stored Procedures\RegistrationFeeModule\uspRegistrationFeeGridSelect.sql" />
+    <Build Include="dbo\Types\RegistrationFeeDetailsType.sql" />
+    <Build Include="dbo\Stored Procedures\StudentReportModule\uspStudentPaymentReceiptReportSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CabDriverAppModule\uspStoppageLatLagSelect.sql" />
+    <Build Include="dbo\Tables\AccountingMainHead.sql" />
+    <Build Include="dbo\Stored Procedures\CabDriverAppModule\uspCabDriveActiveTripSelect.sql" />
+    <Build Include="dbo\Stored Procedures\StudentModule\uspStudentPaymentExists.sql" />
+    <Build Include="dbo\Stored Procedures\CabDriverAppModule\uspCurrentActiveTripIdSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SchedularNotificationModule\uspSchoolHolidaysSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SchedularNotificationModule\uspEventSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SchedularNotificationModule\uspBulkPaymentReminderSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SchedularNotificationModule\uspUpcomingTeacherLectureSelect.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspCabDriveActiveTripforAdminSelect.sql" />
+    <Build Include="dbo\Tables\CBSE_ExamResult.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamResultModule\uspExamResultGridSelect.sql" />
+    <Build Include="dbo\Types\CBSE_ExamResultType.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamResultModule\uspExamResultUpsert.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamResultModule\uspExamNameDropdownSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamResultModule\uspSubjectNameDropdownSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamResultModule\uspuspMarksGradeSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamReportCardModule\uspExamMasterDropdownForReport.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamReportCardModule\uspExamReportCardDelete.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamReportCardModule\uspExamReportCardGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamReportCardModule\uspExamReportCardSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamReportCardModule\uspExamReportCardUpsert.sql" />
+    <Build Include="dbo\Tables\CBSE_ExamReportCardName.sql" />
+    <Build Include="dbo\Tables\CBSE_ReportCardClasses.sql" />
+    <Build Include="dbo\Tables\CBSE_ReportCardExam.sql" />
+    <Build Include="dbo\Stored Procedures\BulkAttendanceUpdateModule\uspClassAttendanceStatusGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\BulkAttendanceUpdateModule\uspGetStudentAttendanceByMonthSelect.sql" />
+    <Build Include="dbo\Stored Procedures\BulkAttendanceUpdateModule\uspStudentAttendanceByMonthUpsert.sql" />
+    <Build Include="dbo\Types\AttendanceByMonthType.sql" />
+    <Build Include="dbo\Types\CBSE_ExamObjectDetailType.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspExistExamObject.sql" />
+    <Build Include="dbo\Stored Procedures\RegistrationFeeModule\uspRegistrationHistorySelect.sql" />
+    <Build Include="dbo\Stored Procedures\RegistrationFeeModule\uspRegistrationHistoryGridSelect.sql" />
+    <Build Include="dbo\User Defined Functions\udfRegistrationFeeStatus.sql" />
+    <Build Include="dbo\User Defined Functions\udfRegistrationPaidAmount.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspCheckExamExist.sql" />
+    <Build Include="dbo\Stored Procedures\TransportModule\uspStoppageLatLagSelectForAdmin.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamResultModule\uspCBSE_ExamResultGridSelect.sql" />
+    <Build Include="dbo\Stored Procedures\BulkAttendanceUpdateModule\uspStudentAttendanceStatusInsert.sql" />
+    <Build Include="dbo\Tables\StudentAttendanceBulkSummaryStatus.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_AcademicAssessmentReport\uspReportCardTemplateDropdown.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_AcademicAssessmentReport\uspResultReportSearchSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_AcademicAssessmentReport\uspResultTempleteReportSearchSelect.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_AcademicAssessmentReport\uspGetStudentMonthlyAttendance.sql" />
+    <Build Include="dbo\Stored Procedures\SubjectMappingModule\uspCheckSubjectIndexNumberExists.sql" />
+    <Build Include="dbo\Stored Procedures\SubjectMappingModule\uspGradeDivisionMatrixForSubjectMappingCascadeSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SubjectMappingModule\uspSubjectIndexNumberDetailsSelect.sql" />
+    <Build Include="dbo\Stored Procedures\SubjectMappingModule\uspSubjectMappingClone.sql" />
+    <Build Include="dbo\Stored Procedures\SubjectMappingModule\uspUpsertSubjectIndexNumberDetails.sql" />
+    <Build Include="dbo\Types\SubjectMasterIndexType.sql" />
+    <Build Include="dbo\Stored Procedures\CBSE_ExamModule\uspObjectDelete.sql" />
+    <Build Include="dbo\Sequences\RegistrationFeeInvoiceSequence.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Post Deployment\Script.Role.sql" />
+    <PostDeploy Include="Post Deployment\Script.PostDeployment.sql" />
+    <None Include="Post Deployment\Script.MonthMaster.sql" />
+    <None Include="Post Deployment\Script.EnquiryType.sql" />
+    <None Include="Post Deployment\Script.EnquiryStatus.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SchoolDatabase.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="SchoolDatabase.refactorlog" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Post Deployment\Script.AccountingMainHead.sql" />
+    <None Include="Post Deployment\Script.ExamType.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Post Deployment\Script.ExamTerm.sql" />
+  </ItemGroup>
+</Project>

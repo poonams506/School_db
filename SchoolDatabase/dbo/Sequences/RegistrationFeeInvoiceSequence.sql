@@ -1,0 +1,7 @@
+﻿CREATE SEQUENCE [dbo].[RegistrationFeeInvoiceSequence]
+		AS BIGINT
+		START WITH 1
+		INCREMENT BY 1
+		NO MAXVALUE
+		NO CYCLE;
+GO

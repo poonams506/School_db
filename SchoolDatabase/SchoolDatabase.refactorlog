@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="a43ff51e-6d8e-4d97-b4b5-5f09cdd9d14c" ChangeDateTime="08/14/2023 03:56:45">
+    <Property Name="ElementName" Value="[dbo].[Teacher].[Isdeleted]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[Teacher]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="IsDeleted" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d0d2f040-d053-417c-9ea5-265695c4a5af" ChangeDateTime="08/16/2023 03:57:37">
+    <Property Name="ElementName" Value="[dbo].[CabDriver].[Addressline2]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[CabDriver]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AddressLine2" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d68e606c-5a96-47e7-8346-6417ffef8ced" ChangeDateTime="08/28/2023 11:08:34">
+    <Property Name="ElementName" Value="[dbo].[FeeParticularWavierMapping].[FeeParticularId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[FeeParticularWavierMapping]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="GradeId" />
+  </Operation>
+</Operations>

@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[StudentKitFeePaymentDetails]
+(
+ StudentKitFeePaymentDetailId BIGINT IDENTITY(1, 1), 
+ FeeParticularId BIGINT,
+ StudentId BIGINT,
+ AcademicYearId SMALLINT,
+ StudentKitFeePaymentId BIGINT,
+ InvoiceNumber VARCHAR(100),
+ OtherFeeReason NVARCHAR(500),
+ FeeAfterDiscount MONEY,
+ PaidAmount MONEY,
+ IsChequeClear BIT DEFAULT(0) NOT NULL,
+ PaymentTypeId SMALLINT,
+ AdditionalDiscInPercentage NUMERIC(5,4),
+ AdditionalDiscAmount MONEY,
+ CreatedBy INT, 
+ CreatedDate DATETIME, 
+ ModifiedBy INT, 
+ ModifiedDate DATETIME, 
+ IsDeleted BIT DEFAULT(0) NOT NULL,
+ CONSTRAINT [PKStudentKitFeePaymentDetails] PRIMARY KEY CLUSTERED ([StudentKitFeePaymentDetailId] ASC),
+ CONSTRAINT [FKStudentKitFeePaymentDetailsAcademicYear] FOREIGN KEY (AcademicYearId) REFERENCES AcademicYear(AcademicYearId),
+ CONSTRAINT [FKStudentKitFeePaymentDetailsStudentKitFeePayment] FOREIGN KEY (StudentKitFeePaymentId ) REFERENCES StudentKitFeePayment(StudentKitFeePaymentId ),
+ CONSTRAINT [FKStudentKitFeePaymentDetailsStudent] FOREIGN KEY (StudentId) REFERENCES Student(StudentId)
+)
